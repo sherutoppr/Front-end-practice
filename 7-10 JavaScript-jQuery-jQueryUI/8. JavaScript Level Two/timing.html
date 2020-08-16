@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timimg finction</title>
+    <script type="text/javascript">
+
+    var ID = 0;
+    var sec = 0;
+    function pmsg()
+    {
+        document.getElementById("op").innerHTML = sec+" sec passed";
+        sec++;
+    }
+
+    function start()
+    {
+       // ID = window.setTimeout(pmsg,3000);  // execute stat once 
+       ID = window.setInterval(pmsg,1000);    // execute stat repeatedly   
+    }
+
+    function stop()
+    {
+        // window.clearTimeout(ID);
+        window.clearInterval(ID);
+    }
+
+    </script>
+</head>
+<body>
+    
+
+    <button onclick="start()"> start</button>
+    <h2 id="op">some text</h2>
+    <button onclick="stop()">stop</button>
+</body>
+</html>

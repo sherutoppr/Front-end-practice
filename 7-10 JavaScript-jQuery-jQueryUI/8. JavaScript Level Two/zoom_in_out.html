@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>zoom in and zoom out</title>
+    <script type="text/javascript">
+      var width = 100;
+      var diff = 2;
+      var ID = 0;
+      function increase() {
+        clearInterval(ID);
+        ID = setInterval(expand, 20);
+      }
+
+      function expand() {
+        if (width < 200) {
+          width = width + diff;
+          document.getElementById("img1").width = width;
+          console.log(width);
+        } else {
+          clearInterval(ID);
+        }
+      }
+
+      function decrease() {
+        clearInterval(ID);
+        ID = setInterval(shrink, 20);
+      }
+      function shrink() {
+        if (width > 100) {
+          width = width - diff;
+          document.getElementById("img1").width = width;
+          console.log(width);
+        } else {
+          clearInterval(ID);
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <br /><br />
+    <img
+      onmouseover="increase()"
+      onmouseout="decrease()"
+      src="images/heart.png"
+      width="100"
+      id="img1"
+    />
+  </body>
+</html>

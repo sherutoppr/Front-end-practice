@@ -1,0 +1,21 @@
+
+body{
+    background: blueviolet;
+}
+
+div{
+    background: red;
+    border-color: yellow;
+    border-width: 3px;
+    border-style: dashed;
+}
+
+p{
+    color: darkgreen;
+}
+
+span{
+    background: blue;
+    color: aliceblue;
+}
+

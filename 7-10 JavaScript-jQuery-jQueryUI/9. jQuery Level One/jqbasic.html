@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery basics</title>
+    <link rel="stylesheet" href="css/style1.css" />
+  </head>
+  <body>
+    <h2 class="hc" id="h1">Setting up jquery</h2>
+    <p class="hc">Selector in jquery</p>
+    <button id="btn1">click 01</button>
+    <button id="btn2">click 02</button>
+    <button id="btn3">Animation</button>
+    <div id="dc1" class="dc">
+      <p>this is first div and first para.</p>
+      <p>first div and second para</p>
+    </div>
+
+    <div id="dc2" class="dc">
+      <p>this is second div and third para.</p>
+    </div>
+
+    <div id="dc3" class="dc">
+      <li>list item 1</li>
+      <li>list item 2</li>
+      <li>list item 3</li>
+    </div>
+    <div id="cube">
+      <p>CUBE</p>
+    </div>
+  </body>
+  <script src="js/jquery3.5.js" type="text/javascript"></script>
+  <script>
+    // only after page is ready, we want to so sth
+    $(document).ready(function () {
+      // $("button").dblclick(fn1)   // work when double click is done
+
+      function fn1() {
+        // $("div p").fadeToggle(200);  p inside div tag
+        // $("p:first").fadeToggle(200);   first instance of p tag
+        $("#dc1,#dc2").fadeOut(200); //multiple id simantaneously
+        // $(".dc:even").fadeToggle(200);  even number of class instance
+      }
+      function fn2() {
+        $("#dc1,#dc2").fadeIn(200);
+      }
+
+      // $("#btn1").mouseenter(function(){
+      //     $("#dc1,#dc2").fadeOut(200);
+      // });
+      // $("#btn1").mouseleave(function(){
+      //     $("#dc1,#dc2").fadeIn(200);
+      // });
+
+      // combile above 2 funciton in one
+      // $("#btn1").hover(fn1,fn2);
+
+      // $("#btn1").click(function(){
+      //     $("#dc2").hide();          //similar fadein or slideup
+      // });
+
+      // $("#btn2").click(function(){
+      //     $("#dc2").show();          // similar fadeout or slidedown
+      // });
+
+      // $("#btn3").click(function(){
+      //     $("#dc2").toggle();        // silimar fadetoggle or slidetoggle
+      // });
+
+      $("#btn3").click(function () {
+        $("#cube").animate(
+          {
+            left: "150px",
+            opacity: "1",
+            width: "100px",
+            height: "100px",
+          },
+          1000
+        );
+      });
+    });
+  </script>
+</html>

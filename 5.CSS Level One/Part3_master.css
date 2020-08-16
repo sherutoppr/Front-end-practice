@@ -1,0 +1,32 @@
+.firstclass{
+    color: blue;
+}
+
+.secondclass{
+    color: red;
+}
+
+#outside{
+    color: green;
+    text-decoration: line-through;
+}
+
+  /** dont override id*/
+/**{*/
+/*    color: darkorange;*/
+/*}*/
+
+  /*all ul after h3*/
+h3 + ul{
+  border: 4px dotted purple;
+}
+
+    /*tag inside a tag*/
+li a{
+   color: red;
+}
+
+li a[href="www.npr.com"]{
+    color: blue;
+    border: 5px solid orange;
+}

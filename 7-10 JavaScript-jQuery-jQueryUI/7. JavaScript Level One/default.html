@@ -1,0 +1,322 @@
+<html>
+  <head>
+    <title>js basic</title>
+    <script type="text/javascript">
+      // this is comment.
+
+      /* hii , guys,
+            this is multiline comment.
+            */
+      document.write("<h1>hii , i am learning the javascript</h1>");
+      document.write("<h2>                       sheru khan </h2>");
+
+      //addition is left-to-right associativity
+
+      //var a = 3
+      //var b = 5
+      //var c = 2
+      //var res = a + b + c    res = 10
+      //var res = "a" + b + c   res = a52 because leftest one is string
+      // var res = a + b + "c"  res  = 8c
+      // res = a + b + "sk" + b + c    res = 8sk52
+
+      // if -else control statement
+
+      // x = 2
+      // if(x%2 == 0)
+      // {
+      //     document.write("<h5>"+ x +" is even number </h5>");
+      // }
+      // else
+      // {
+      //     document.write("<h5>"+ x +" is odd number </h5>");
+      // }
+
+      // if(x > 0 && x%2==0)
+      // {
+      //     document.write("<h5>"+ x +" is positive and even number </h5>")
+      // }
+
+      // switch case
+
+      // day = 1
+      // switch(day)
+      // {
+      //     case 1: document.write("<h3> Monday </h3>"); break;
+      //     case 2: document.write("<h3> Tuesday </h3>"); break;
+      //     default: document.write("<h3> Wrong output </h3>");
+      // }
+
+      // for-loop
+
+      // for(x = 1;x < 5;x++) document.write("<h3> "+x+" </h3");
+
+      // while - loop
+
+      // var x = 1
+      // while(x < 10)
+      // {
+      //     document.write("<h3> "+x+" </h3");
+      //     x = x+1;
+      // }
+
+      // function
+
+      // function addnumber()
+      // {
+      //     a = 2
+      //     b = 3
+      //     total = a + b
+      //     document.write("<h3> total :"+total+" </h3");
+
+      // }
+
+      // addnumber();   // call for function
+
+      //scope of variable
+
+      // var  a = 5;   //global variable
+      // document.write("<h2> outside : "+a+"</h2?>");
+
+      // function scopee()
+      // {
+      //     var a = 10;
+      //     document.write("<h2> inside : "+a+"</h2?>");
+      // }
+
+      // scopee()
+
+      //Intro to array
+
+      // var car1 = "audi";
+      // var car2 = "volvo";
+      // var car3 = "bmw";
+
+      // var cars = ["bmw","volvo","audi"]
+      // var arr1 = new Array("mango","banana","orange");
+
+      // document.write("<h2> car: "+cars+"</h2>");
+      // document.write("<h2> fruit: "+arr1+"</h2>");
+
+      // cars.push("farari");
+      // cars.push(5)
+
+      // for(var i = 0;i<cars.length;i++)
+      // {
+      //     document.write("<h2> "+cars[i]+"</h2>");
+      // }
+
+      // intro to objects
+
+      var car = {
+        brand: "tesla",
+        model: "M507",
+        price: 35000,
+
+        teslaautopilot: function () {
+          return "<h2> has auto pilot </h2>";
+        },
+      };
+
+      // document.write("<h2>"+car.teslaautopilot() + "</h2>");
+
+      /*
+                        boolean, numbers, strings can be objects
+                        but dates, maths, regular expression is always objects.
+
+                    */
+
+      // find the type of variable
+      //var str1  = new String()
+      //document.write("<h2>"+typeof(str1) + "</h2>");  // its an objects
+
+      // add new property or method to objects
+      //car.fueltype = "electric";
+      // delete car.fueltype;
+      //car.price = "45000"   // change data type of property
+      //document.write("<h2>" + car.fueltype + "</h2>")
+
+      // manupulate the DOM objects
+
+      /*
+                    enents examples : clicking , double click, drag and drop, 
+                                        scroll, changing the focus from one box to another
+
+
+                    */
+
+      // take input form heading tag
+      function buttonclick() {
+        var str = document.getElementById("heading2").innerHTML;
+        alert(str);
+      }
+
+      // take input from input tag
+      function fn1() {
+        var str = document.getElementById("text1").value;
+        alert("values is :" + str);
+      }
+
+      // take input form radio button
+      function fn2() {
+        var rd1 = document.getElementById("rd1");
+
+        var rd2 = document.getElementById("rd2");
+
+        if (rd1.checked == true) alert("i like " + rd1.value);
+        else if (rd2.checked == true) alert("i like " + rd2.value);
+        else alert("i dont like both");
+      }
+
+      // take input from selectbox
+
+      function fn3() {
+        var sel = document.getElementById("like");
+        alert(sel.options[sel.selectedIndex].value);
+      }
+
+      // change the style of tag by getelement by tagname
+
+      function changestyle() {
+        // para is array consist of all tag
+        var para = document.getElementsByTagName("p");
+        //    para[0].style.fontSize = 25;
+        //    para[1].style.color = "red";
+        //    para[2].style.fontWeight = "bold";
+        //    para[3].style.fontStyle = "italic";
+        for (var i = 0; i < para.length; i++) {
+          para[i].style.color = "red";
+          para[i].style.fontSize = 30;
+        }
+      }
+
+      // getelement by classname id used only for one element
+      // but class can be use for more than one html element
+
+      function changestyle2() {
+        var element = document.getElementsByClassName("mypara");
+        for (var x = 0; x < element.length; x++) {
+          element[x].style.color = "red";
+          element[x].style.fontSize = 30;
+        }
+      }
+
+      // mouseover and mouseout event
+
+      function newimg() {
+        document.getElementById("img1").src = "images/favorite.jpg";
+      }
+
+      function currimg() {
+        document.getElementById("img1").src = "images/default.jpeg";
+      }
+
+      // form validate
+      function validate() 
+      {
+
+
+        var text = document.getElementById("uemail").value;
+
+        var regx = /^([a-z A-Z 0-9 \.-]+)@([a-z A-Z 0-9 \-]+).([a-z]{2,8})(.[a-z]{2,8})?$/
+        // ? means left to it is option
+        // {9} = {0,9} and for variable length use + operator
+        // ()() for define the section in expression
+        // \.- means after \ it ignore the special meaning of . and -
+
+        if(regx.test(text))
+        {
+          document.getElementById("lbluser").innerHTML = "valid";
+          document.getElementById("lbluser").style.visibility = "visible";
+          document.getElementById("lbluser").style.color = "green";          
+        }
+        else{
+          document.getElementById("lbluser").innerHTML = "invalid";
+          document.getElementById("lbluser").style.visibility = "visible";
+          document.getElementById("lbluser").style.color = "red"; 
+        }
+
+        return false;
+
+
+
+
+        // var username = document.getElementById("uname");
+        // var password = document.getElementById("pass");
+
+        // var uname = username.value;
+        // var regx = /[ETM]00/i;
+        //char set ex.[a-x], [a-x A-X 0-9], [0-5]a[6-9]bc
+        //exclude sth ex. [^1bd]007 means 1 or b or d can not be 1st
+        // mobile regx = /^[7-9]\d{9}$/   ^ is starting point and $ is ending point
+
+        // emial validate
+        
+
+        // if (username.value.trim() == "" || !regx.test(uname)) {
+        //   username.style.border = "solid 3px red";
+        //   document.getElementById("lbluser").style.visibility = "visible";
+
+        //   return false;
+        // } else if (password.value.trim().length < 5) {
+        //   alert("password too short");
+        //   return false;
+        // } else {
+        //   return true;
+        // }
+      }
+
+      // learn debugging using crome
+
+
+
+
+
+    </script>
+  </head>
+  <body>
+    <!-- <button onclick="buttonclick()">Click here</button>
+            <h2 id="heading2"> some random text</h2> -->
+
+    <!-- <input id="text1" placeholder="enter here">
+            <br>
+            <button onclick="fn1()">click here</button> -->
+
+    <!-- <input id="rd1" name="like" type="radio" value="coffee"> coffee </input>
+            <br>
+            <input id="rd2" name="like" type="radio" value="tea"> tea </input>
+            <br>
+            <button onclick="fn2()">click here</button> -->
+
+    <!-- <select id="like">
+                <option value="tea"> tea </option>
+                <option value="coffee"> coffee </option>
+                <option value="cold drink"> cold drink </option>
+            </select>
+        
+            <button onclick="fn3()"> click me </button>  -->
+
+    <!-- <p class="mypara"> this is para 0</p>
+            <p> this is para 1</p>
+            <p class="mypara"> this is para 2</p>
+            <p> this is para 3</p>
+            <p class="mypara"> this is para 4</p>
+            <a class="mypara" href="#"> this is anchor tag </a>
+            <br>
+            <button onclick="changestyle2()"> click me </button> -->
+
+    <!-- <img id="img1" onmouseover="newimg()" onmouseout="currimg()" width = 300 src="images/default.jpeg" > -->
+
+    <!-- <form onsubmit="return validate()" action="/message.html">
+      <input id="uname" placeholder="username" type="text" /><br><br>
+      <input id = "uemail" placeholder="email" type="text">
+      <label id="lbluser" style="color: red; visibility: hidden;">Invalid</label
+      ><br /><br />
+      <input id="pass" placeholder="password" type="password" required ><br /><br />
+      <button type="submit">submit</button>
+    </form> -->
+    
+
+
+  </body>
+</html>

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>jquery UI</title>
+    <link rel="stylesheet" href="css/style3.css" />
+    <link rel="stylesheet" href="jqueryui/jquery-ui-1.12.1/jquery-ui.css" />
+    <link
+      rel="stylesheet"
+      href="jqueryui/jquery-ui-1.12.1/jquery-ui.structure.css"
+    />
+    <link
+      rel="stylesheet"
+      href="jqueryui/jquery-ui-1.12.1/jquery-ui.theme.css"
+    />
+  </head>
+  <body>
+    <div id="div1">
+      <h1>Intro to jquery UI</h1>
+      <!-- <h2>1.date picker :</h2>
+      <input id="dateinput" type="text" placeholder="select date" />
+      <br /><br /><br /> -->
+
+      <!-- <h2>2. tool tip :</h2>
+      <img
+        src="images/favorite.jpg"
+        height="100"
+        width="150"
+        title=""
+        id="img1"
+      />
+      <br /><br /> -->
+
+
+      <!-- <h2>3.Accodion widget control :</h2>
+      <br />
+      <div id="panels">
+        <h3>Learing the jquery UI</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+
+        <h3>Basic of Jquery</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus ducimus beatae consequuntur odio, repellendus ipsa
+          deserunt mollitia laborum expedita nemo velit molestiae recusandae
+          aliquam quis alias neque, dicta magni! Esse?
+        </p>
+
+        <h3>Advance of Jquery</h3>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit.
+          Necessitatibus ducimus beatae consequuntur odio, repellendus ipsa
+          deserunt mollitia laborum expedita nemo velit molestiae recusandae
+          aliquam quis alias neque, dicta magni! Esse?
+        </p>
+      </div> -->
+
+
+      <!-- <br />
+      <h2>4. Message box :</h2>
+      <div id="firstdiv" class="mydivs">
+        <button id="btn1">click to show message box</button>
+        <button id="btn2"> stop dragging </button>
+      </div>
+      <br />
+      <div id="msgbox" title="" class="mydivs">
+        <h3>dummy title</h3>
+        <p>hii, we want to use cookies</p>
+        
+      </div>
+      <br> -->
+
+
+      <!-- <h2> 5. autocomplete widget </h2>
+      <div id="auto" class="mydivs">
+        <label><b>Enter your favorite city : </b></label>
+        <input type="text" id="autowid" name="" >
+      </div> -->
+
+
+      <!-- <br>
+      <h2> 6. Draggable and sortable interaction  </h2>
+      <div style="border: 2px solid ;" id="sort">
+        <div class="cube">
+            <h3> CUBE 1</h3>
+
+        </div>
+        <div class="cube">
+            <h3>
+                CUBE 2
+            </h3>
+        </div>
+        <div class="cube">
+            <h3>
+                CUBE 3
+            </h3>
+        </div>
+
+      </div> -->
+
+      <br>
+      <h2> Resizable interaction </h2>
+      <div id="rdiv">
+        <img id="rimg" src="images/favorite.jpg" width="250px" height="150px">
+      </div>
+
+
+
+
+    </div>
+  </body>
+  <script src="js/jquery3.5.js" type="text/javascript"></script>
+  <script
+    src="jqueryui/jquery-ui-1.12.1//jquery-ui.js"
+    type="text/javascript"
+  ></script>
+  <script>
+    $(document).ready(function () {
+      //$("#msgbox").dialog();
+      $("#dateinput").datepicker({
+        numberOfMonths: 1,
+        changeYear: true,
+        changeMonth: true,
+        showWeek: true,
+        weekHeader: "wk no",
+        showOtherMonths: true,
+        minDate: new Date(2017, 0, 1),
+        maxDate: new Date(2022, 0, 1),
+      });
+
+      $("#img1").tooltip({
+        track: true,
+        content: "my family",
+        show: { effect: "highlight", duration: 3000 }, // pulsate, highlight, explode, blind
+        hide: { effect: "explode", duration: 3000 },
+      });
+
+      $("#panels").accordion({
+        collapsible: true,
+        event: "click", // mouseover,
+        animate: 400,
+        active: 0,
+        heightStyle: true, //to save extra space in blocks
+        icons: { header: "ui-icon-plus", activeHeader: "ui-icon-minus" },
+      });
+
+      $("#btn1").click(function () {
+        $("#msgbox").dialog({
+          title: "Privacy Policy ",
+          draggable: true,
+          resizable: true,
+          height: 300,
+          width: 300,
+          model: true, // after close or dialogue box, u can do sth in website
+          buttons: [
+            {
+              text: "close",
+              icon: "ui-icon-heart",
+              click: function () {
+                $(this).dialog("close");
+              },
+            },
+            {
+              text: "ok",
+              icon: "ui-icon-heart",
+              click: function () {
+                $(this).dialog("close");
+              },
+            },
+          ],
+        });
+      });
+
+      // getter and setter method 
+      $("#btn2").click(function(){
+
+        // getter method
+        var height = $("#msgbox").dialog("option","height");
+        alert(height);
+
+
+        // setter method
+        $( "#msgbox" ).dialog("option","draggable",false);
+
+      });
+
+      // autocomplete widget 
+      var city = ["mumbai", "makka", "delhi", "delpur", "mukabla", "guwahati", "gulabpura"];
+      $("#autowid").autocomplete({
+
+        source: city,
+
+
+      },{
+        autoFocus: true,
+        delay: 0,
+        minLength:2,
+
+      });
+
+      // widget modification
+
+      // draggable interaction
+
+      $(".cube").draggable({
+
+        //axis: 'y',   // may be x-axis
+        //containment : "parent",   // document for whole screen
+        cursor : "grabbing",
+        opacity: 0.5,
+       // grid: [300, 300],
+       //snap : true,    // stick when they come closer by some predefined distance
+       //snapTolerance: 100,
+
+
+      });
+
+      // sorted interaction
+      $("#sort").sortable();
+
+
+      // resizable interaction
+      $("#rimg").resizable({
+
+          //maxWidth: 400,
+          //maxHeight: 300,
+          autoHide: true,   // hide small icon and visible when u hover
+          ghost: true,
+          aspectRatio: true,
+
+
+      });
+
+    });
+  </script>
+</html>

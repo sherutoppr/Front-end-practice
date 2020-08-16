@@ -1,0 +1,32 @@
+h1{
+    text-align: center;
+}
+
+.art{
+    margin: auto;
+}
+td{
+    background: black;
+    height: 200px;
+    width: 100px;
+}
+
+#one{
+    background: purple;
+}
+
+#two{
+    background:seagreen;
+}
+
+#three{
+    background: slategrey;
+}
+
+#forth{
+    background: darkblue;
+}
+
+#fifth{
+    background: burlywood;
+}
